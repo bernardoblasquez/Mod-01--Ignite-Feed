@@ -20,9 +20,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   sobre essa interface.
 
 
-  O componente é um dos principais conceitos que usmos no react. O componente é uma
-  forma de desacoplar um pedacinho de nossa interface para que ela re torne repetitível 
+  O componente é um dos principais conceitos que usamos no react. O componente é uma
+  forma de desacoplar um pedacinho de nossa interface para que ela se torne repetítível 
   (reutilizável) e se trone mais fácil de dar manutenção. 
 
   O componente é uma função que retorna um HTML.
+
+  Momentos para criar componentes:
+  - quando alguma coisa repete muito em tela e possui
+  o mesmo visual e comportamento.
+  - Tirar algo de um componente maior sem que aquele 
+  componente maior para de funcionar. 
 */
