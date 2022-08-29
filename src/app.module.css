@@ -8,3 +8,20 @@
    gap: 2rem;
    align-items: flex-start;
 }
+
+@media (max-width:768px){
+   html{
+      font-size: 87.5%;
+   }
+
+   .wrapper{
+      grid-template-columns: 1fr
+   }
+}
+
+/*
+   rem - unidade relativa ao tamanho da fonte da página
+   valores em pixel, das fontes impossibilitam o usuário de
+   redimencionar a fonte na configuração do dispositivo
+
+*/
