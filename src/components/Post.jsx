@@ -39,12 +39,14 @@ export function Post({author, content, publishedAt}) {
          </header>
 
          <div className={styles.content}>
-            <p>Fala pessoal</p>
-            <p>
-               Finalmente finalizei meu novo site/portfólio. Foi um baita desafio 
-               criar todo o design e codar na unha, mas consegui
-            </p>
-            <p>Acesse e deixe seu feedback <a href="#">devonlane.design</a></p>
+           {content.map(line => {
+               if (line.type === 'paragrath'){
+                  return <p>{line.content}</p>;
+               }
+               else if (line.type === 'link'){
+                  return <p><a href="#">{line.content}</a></p>;
+               }
+           })}
          </div>
 
          <form className={styles.commentForm}>
