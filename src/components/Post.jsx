@@ -1,19 +1,41 @@
+import { format, formatDistanceToNow} from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import styles from './Post.module.css'
 
-export function Post() {
+export function Post({author, content, publishedAt}) {
+   /* DATE FNS JS
+      const options = { 
+            day:'2-digit',
+            month:'long',
+            hour: '2-digit', minute: '2-digit'
+      };
+      const publishedFormattedDate = Intl.DateTimeFormat('pt-BR', options).format(publishedAt);
+   */
+  // Date FNS package
+   const publishedFormattedDate = format(publishedAt, "dd 'de' LLLL 'às' H:mm'h'",{
+      locale:ptBR
+   })
+
+   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+      locale: ptBR,
+      addSuffix: true
+   })
+
    return(
       <article className={styles.post}>
          <header>
             <div className={styles.author}>
-               <Avatar src="https://avatars.githubusercontent.com/u/4926167?v=4" />
+               <Avatar src={author.avatarUrl} />
                <div className={styles.authorInfo}>
-                  <strong>Bernardo Blasquez</strong>
-                  <span>Front-end Developer</span>
+                  <strong>{author.name}</strong>
+                  <span>{author.role}</span>
                </div>
             </div>
-            <time title="11 de maio às 08:13" dateTime="2022-05-11 08:13:30">publicado a 1h</time>
+            <time title={publishedFormattedDate} dateTime="2022-05-11 08:13:30">
+               {publishedDateRelativeToNow.toString()}
+            </time>
          </header>
 
          <div className={styles.content}>
