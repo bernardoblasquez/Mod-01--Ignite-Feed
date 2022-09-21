@@ -101,4 +101,16 @@ export function App() {
   É importante ter o conteúdo bruto.
 
   foreach não tem retorno, por isso usamos map()
+
+--------------------------------------------------------------------------------
+  Key no React
+
+  Por que deve ser única?
+  3 momentos em que um componente é renderizado novamente no React
+
+  1. Quando o estado altera;
+  2. Quando a propriedade altera;
+  3. Quando um componente pai renderiza novamente
+  
+  
 */
