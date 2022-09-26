@@ -41,6 +41,14 @@ export function Post({author, content, publishedAt}) {
       setNewCommentsText(event.target.value)
    }
 
+   const deleteComment = (commenttoDelete) => {
+      const commentsWithoutDeleteOne = comments.filter(comment => {
+         return comment !== commentToDelete;
+      })
+      
+      setComments(commentsWithoutDeleteOne)
+   }
+
    return(
       <article className={styles.post}>
          <header>
@@ -87,7 +95,13 @@ export function Post({author, content, publishedAt}) {
 
          <div className={styles.commentList}>
             {comments.map(comment => {
-               return <Comment key={comment} content={comment}/>
+               return( 
+                  <Comment 
+                     key={comment} 
+                     content={comment} 
+                     onDeleteComment={deleteComment}
+                  />
+               )
             })}
             
          </div>
@@ -96,3 +110,14 @@ export function Post({author, content, publishedAt}) {
    )
 }
 
+/*
+   Imutabilidade
+   - NUNCA Alteramos uma variável na memória.
+   - As variáveis não sofrem mutação (tem seu valor alterado), criamos um novo 
+   valor, espaço na memória. 
+   - A imutabilidade é mais performática, já que Criar um valor na memória 
+   permite ser mais performático do que comparar e alterar o valor existente.
+
+   No React nunca estamos alterando uma informação, estamos sempre criando uma 
+   nova informação. 
+*/
